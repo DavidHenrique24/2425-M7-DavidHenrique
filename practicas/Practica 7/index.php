@@ -43,13 +43,7 @@ n                                                                               
 <body>
     <div class="container">
         <h1> Benvinguta a Hogwarts</h1>
-        <form action="bienvenida.php" method="POST">
-            <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" id="nombre">
-            <label for="apellidos">Apellidos</label>
-            <input type="text" name="apellidos: " id="apellidos">
-            <button type="submit">Enviar</button>
-        </form>
+      
     </div>
 </body>
 </html>
