@@ -12,18 +12,16 @@
   $nombre = $_POST['nombre'];
   $telefono= $_POST['telefono'];
   $urlFoto= $_POST['urlFoto'];
-
   include "includes/header.php";
-  
-
-
+  include "includes/funciones.php";
+  include "data/productos.php";
 ?>
 
 <div class="container">
 
   <div>
     <h2>Productos disponibles</h2>
-    <!-- Aquí va la tabla de productos -->
+    <?php generarTablaProductos($productos) ?>
   </div>
 
   <!-- Aquí incluye los datos de contacto del cliente con un toast live -->
@@ -43,10 +41,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-        <div class="mb-3"><strong>Nombre: </strong><?php echo $nombre ?> </div>
-        <div class="mb-3"><strong>Telefono: </strong><?php echo $telefono ?> </div>
-        <div class="mb-3"><strong>Foto de Perfil: </strong><img src="<?php echo $urlFoto ?>" alt="" style="width: 300px" class="mx-auto d-block">
-        
+          <?php muestraInfoContacto($nombre,$telefono,$urlFoto) ?>
         </div>
       </div>
     </div>
@@ -55,12 +50,17 @@
   <!-- Modal con la lista de productos que están disponibles -->
 
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <!-- Aquí la lista de productos -->
+    
+      
   </div>
-  <?php
+
+</div>
+<footer>
+<?php
   include "includes/footer.php";
   ?>
-</div>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </body>
 </html>
