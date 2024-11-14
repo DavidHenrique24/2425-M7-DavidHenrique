@@ -21,7 +21,7 @@ function generarTablaProductos($productos){
                     ";
         } else {
             echo "
-                        <td>No hay en stock</td>
+                        <td  class='bg-danger opacity:50%'>No hay en stock</td>
                     ";
         }
 
