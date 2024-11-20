@@ -1,52 +1,14 @@
 <?php
 session_start();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['nombre'] = $_POST['nombre'];
     $_SESSION['apellidos'] = $_POST['apellidos'];
-    $_SESSION['nivel'] = $_POST['dificultat'];
+    $_SESSION['dificultat'] = $_POST['dificultat'];
+    $_SESSION['urlFoto']=$_POST['urlFoto'];
+    header('Location: room1.php');
+    exit();
 }
-
-
-
-$preguntas = [
-    'facil' => [
-        [   'pregunta' => '¿Cuál es el color del cielo en un día despejado?',
-            'respuesta' => 'Azul'
-        ],
-        ['pregunta' => '¿Cuántos días tiene una semana?',
-         'respuesta' => '7'
-        ],
-        ['pregunta' => '¿Cual es el mejor pais de Chile',
-         'respuesta' => 'Chile'
-        ]
-    ],
-    'media' => [
-        ['pregunta' => '¿Cuál es el país con la mayor población del mundo?',
-            'respuesta' => 'China'
-        ],
-        ['pregunta' => '¿Qué planeta es conocido como el "Planeta Rojo"?',
-         'respuesta' => 'Marte'
-        ],
-        ['pregunta' => '¿Cuál es el idioma oficial de Brasil?',
-         'respuesta' => 'Portugués'
-        ]
-    ],
-    'dificil' => [
-        ['pregunta' => '¿En que idioma hablan los chinos?',
-         'respuesta' => 'Chino'
-        ],
-        ['pregunta' => '¿Cual es el peor videojuego?',
-         'respuesta' => 'Lol'
-        ],
-        [
-            'pregunta' => '¿Cuál es el país más pequeño del mundo?',
-            'respuesta' => 'Vaticano'
-        ]
-    ]
-];
-$current_room = $_SESSION['current_room'] - 1;
-$pregunta_actual = $preguntas[$nivel][$current_room];
-
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +22,7 @@ $pregunta_actual = $preguntas[$nivel][$current_room];
 <body class="d-flex justify-content-center align-items-center vh-100" style="background-image: url('https://basementescaperoom.com/los-angeles/template/images/room-header-bg-thebasement.jpg'); background-size:cover; background-repeat: no-repeat;">
     <div class="card p-4 bg-dark text-white" style="width: 22rem;">
         <h2 class="card-title text-center">Benvingut!</h2>
+
         <form action="index.php" method="POST">
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre:</label>
@@ -68,6 +31,10 @@ $pregunta_actual = $preguntas[$nivel][$current_room];
             <div class="mb-3">
                 <label for="apellidos" class="form-label">Apellidos:</label>
                 <input type="text" name="apellidos" id="apellidos" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="apellidos" class="form-label">Url de Foto:</label>
+                <input type="text" name="urlFoto" id="urlFoto" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label for="dificultat" class="form-label">Nivell de Dificultat:</label>
