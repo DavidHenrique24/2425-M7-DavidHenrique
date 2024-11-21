@@ -6,24 +6,26 @@ session_destroy();
 
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Felicidades</title>
    <style>
-    .body{
-        background-color: white;
+    .cuerpo{
+        background-color: black;
+    }
+    .letra{
 
-
+        color: white;
     }
     
    </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
-  <body>
-    <div class="cuerpo container text-center mt-4 ">
-    <h2>Felicidades!! pasaste el escape room</h2>
+  <body class="cuerpo">
+    <div class="container text-center mt-4 ">
+    <h2 class="letra">Felicidades!! pasaste el escape room</h2>
     <img src="https://media.tenor.com/URFDMCokt3EAAAAM/jigsaw-saw.gif" class="img-fluid " alt="">
     </div>
     <div class="d-flex justify-content-center">
