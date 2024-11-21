@@ -16,7 +16,6 @@ session_destroy();
         background-color: black;
     }
     .letra{
-
         color: white;
     }
     
