@@ -18,12 +18,9 @@ if ($_SESSION['dificultat'] == 'facil') {
 
 if(isset($_POST['answer'])) {
     if($_POST['answer'] == $respuestasFa){
-        $message = "BIEN HECHO";
         header("Location: room2.php");
-
     }else{
-        $message = "MAL";
-        echo '<a href="room1.php" class="btn btn-danger w-10">PRUEBA DE NUEVO</a>';
+        $message = '<div style="color:black; margin-top: 10px; background-color:red; opacity:70%; text-align:center;">Respuesta incorrecta</div>';
     }
 }
 include "header.php";
