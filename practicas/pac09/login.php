@@ -8,16 +8,23 @@ $usuarios = [
 ];
 
 // Procesamiento del formulario.
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['nombre'] = $_POST['nombre'];
-    $_SESSION['apellidos'] = $_POST['apellidos'];
+    $_SESSION['contraseya'] = $_POST['contraseya'];
     $_SESSION['urlFoto']=$_POST['urlFoto'];
-    header('Location: home.php');
-    exit();
-}
-
 
     // Validación de credenciales.
+    if (isset($_SESSION["nombre"])) {
+        foreach($usuarios as $usuario){
+            if( $_SESSION['nombre'] = $_POST['nombre'] && $_SESSION['contraseya'] = $_POST['contraseya']){
+                $_SESSION['rol']=$_POST['rol'];
+                header('location: home.php');
+
+            }
+        } 
+         $error= "Usuario o contraseña incorrectos";
+        
+    }
+ 
 
 ?>
 
@@ -47,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                        
                     </div>
                     <div class="inputBox ">
-                        <input class="p-2 m-2" placeholder="Password" type="password" name="apellidos" required>
+                        <input class="p-2 m-2" placeholder="Password" type="password" name="contraseya" required>
                        
                     </div>
                     <div class="inputBox ">
