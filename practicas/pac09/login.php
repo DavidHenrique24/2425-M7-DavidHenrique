@@ -8,18 +8,19 @@ $usuarios = [
 ];
 
 // Procesamiento del formulario.
-    $_SESSION['nombre'] = $_POST['nombre'];
-    $_SESSION['contraseya'] = $_POST['contraseya'];
+    $_SESSION['nombreUsu'] = $_POST['nombre'];
+    $_SESSION['contraseyaUsu'] = $_POST['contraseya'];
     $_SESSION['urlFoto']=$_POST['urlFoto'];
 
     // Validación de credenciales.
-    if (isset($_SESSION["nombre"])) {
+    if (isset($_SESSION["nombreUsu"])) {
         foreach($usuarios as $usuario){
-            if( $_SESSION['nombre'] = $_POST['nombre'] && $_SESSION['contraseya'] = $_POST['contraseya']){
-                $_SESSION['rol']=$_POST['rol'];
-                header('location: home.php');
-
+            if ($_SESSION['nombreUsu'] == $usuario['username'] && $_SESSION['contraseyaUsu'] == $usuario['password']){
+                $_SESSION['rol'] = $usuario['role'];
             }
+            header("location:home.php");
+            exit;
+        
         } 
          $error= "Usuario o contraseña incorrectos";
         

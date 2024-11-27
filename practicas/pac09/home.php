@@ -2,15 +2,18 @@
 session_start();
 
 // Verifica si el usuario ha iniciado sesión; si no, redirige a login.php.
-if (!isset($_SESSION['nombre'])) {
-    header('Location: login.php');
-}
+
 
 // Verifica el rol del usuario
-if ($_SESSION['rol'] == "admin") {
-    $admin = true;
-}
+if ($_SESSION['rol'] == $admin){
+    $rolUsu = "admin";
+}else {
+    $rolUsu= "reader";
+
+};
+
 // Obtener la lista de libros desde la sesión
+
 
 
 ?>
@@ -29,11 +32,11 @@ if ($_SESSION['rol'] == "admin") {
     <header class="bg-light py-3 mb-4 shadow-sm">
         <div class="container d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
-                <img src="" alt="Foto de perfil" class="w-25 rounded-circle me-3">
+                <img src="<?= $_SESSION['urlFoto'] ?>" alt="Foto de perfil" class="w-25 me-3">
                 <div>
-                <h4 class="m-0">👋 Bienvenido, <?= $_SESSION['nombre'] ?></h4>
+                <h4 class="m-0">👋 Bienvenido,<?= $_SESSION['nombreUsu'] ?>  </h4>
 
-                    <?php if ($admin): ?>
+                    <?php if ($roleUsu = "admin"): ?>
                     <!-- SI ES ADMIN.... -->
                         <p class="text-muted m-0"><i class="fas fa-user-shield text-success"></i> Admin ✏️</p>
                    <!-- SINO.... -->
@@ -56,7 +59,7 @@ if ($_SESSION['rol'] == "admin") {
 
         <!-- Botón de agregar libro (solo visible para el admin) -->
 
-          <?php if ($admin): ?>
+          <?php if ($roleUsu = "admin"): ?>
             <?=
             '<div class="text-center mb-4">
                 <a href="add_edit_book.php" class="btn btn-outline-success btn-lg">
@@ -68,8 +71,6 @@ if ($_SESSION['rol'] == "admin") {
 
         <!-- Mostrar lista de libros en un grid de tarjetas con tamaño uniforme -->
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            foreach($_SESSION['libros'] as $libros){ 
-                echo ' 
                 <div class="col">
                     <div class="card h-100 shadow-sm">
                         <img src="" class="card-img-top" alt="" style="height: 400px; object-fit: cover;">
@@ -83,7 +84,7 @@ if ($_SESSION['rol'] == "admin") {
 
 
 
-                      
+                        <?php if ($roleUsu = "admin"): ?>
                         <!-- Botones de editar y eliminar (solo visible para el admin) -->
                             <div class="card-footer d-flex justify-content-between">
                                 <a href="" class="btn btn-outline-primary btn-sm">
@@ -93,7 +94,8 @@ if ($_SESSION['rol'] == "admin") {
                                     <i class="fas fa-trash-alt"></i> Eliminar
                                 </a>
                             </div>
-                      
+
+                      <?php endif ?>
                     </div>
                 </div>
            
