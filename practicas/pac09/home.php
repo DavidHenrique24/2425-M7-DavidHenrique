@@ -7,9 +7,11 @@ if (!isset($_SESSION['nombre'])) {
 }
 
 // Verifica el rol del usuario
-
-
+if ($_SESSION['rol'] == "admin") {
+    $admin = true;
+}
 // Obtener la lista de libros desde la sesión
+
 
 ?>
 
