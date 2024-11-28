@@ -1,21 +1,20 @@
 <?php
 session_start();
 
-// Verifica si el usuario ha iniciado sesión; si no, redirige a login.php.
-
+// Verifica si el usuario ha iniciado sesión; si no, redirige a login.php
+if (!isset($_SESSION['nombreUsu'])  && !isset($_SESSION['rol'])) {
+    header("Location: login.php");
+    exit;
+}
 
 // Verifica el rol del usuario
-if ($_SESSION['rol'] == $admin){
+if ($_SESSION['rol'] == "admin") {
     $rolUsu = "admin";
-}else {
-    $rolUsu= "reader";
-
-};
-
+} else {
+    $rolUsu = "reader";
+}
 // Obtener la lista de libros desde la sesión
-
-
-
+include "functions.php";
 ?>
 
 <!DOCTYPE html>
@@ -34,13 +33,13 @@ if ($_SESSION['rol'] == $admin){
             <div class="d-flex align-items-center">
                 <img src="<?= $_SESSION['urlFoto'] ?>" alt="Foto de perfil" class="w-25 me-3">
                 <div>
-                <h4 class="m-0">👋 Bienvenido,<?= $_SESSION['nombreUsu'] ?>  </h4>
+                    <h4 class="m-0">👋 Bienvenido, <?= $_SESSION['nombreUsu'] ?>  </h4>
 
-                    <?php if ($roleUsu = "admin"): ?>
-                    <!-- SI ES ADMIN.... -->
+                    <?php if ($rolUsu == "admin"): ?>
+                        <!-- SI ES ADMIN.... -->
                         <p class="text-muted m-0"><i class="fas fa-user-shield text-success"></i> Admin ✏️</p>
-                   <!-- SINO.... -->
-                   <?php else: ?>
+                    <?php else: ?>
+                        <!-- SINO.... -->
                         <p class="text-muted m-0">Lector 📚</p>
                     <?php endif; ?>
                 </div>
@@ -58,47 +57,39 @@ if ($_SESSION['rol'] == $admin){
         </div>
 
         <!-- Botón de agregar libro (solo visible para el admin) -->
-
-          <?php if ($roleUsu = "admin"): ?>
-            <?=
-            '<div class="text-center mb-4">
+        <?php if ($rolUsu == "admin"): ?>
+            <div class="text-center mb-4">
                 <a href="add_edit_book.php" class="btn btn-outline-success btn-lg">
                     <i class="fas fa-plus-circle me-2"></i>Agregar Nuevo Libro
                 </a>
-            </div>'
-            ?>
+            </div>
         <?php endif ?>
 
         <!-- Mostrar lista de libros en un grid de tarjetas con tamaño uniforme -->
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <?php foreach ($libros as $libro): ?>
                 <div class="col">
                     <div class="card h-100 shadow-sm">
-                        <img src="" class="card-img-top" alt="" style="height: 400px; object-fit: cover;">
+                        <img src="<?= $libro['src']; ?>" class="card-img-top" alt="<?= $libro['titulo']; ?>" style="height: 400px; object-fit: cover;">
                         <div class="card-body">
-                            <h5 class="card-title">TITULO</h5>
-                            <p class="card-text"><strong>Autor:</strong> AUTOR</p>
-                            <p class="card-text">DESCRIPCIÓN</p>
+                            <h5 class="card-title"><?= $libro['titulo']; ?></h5>
+                            <p class="card-text"><strong>Autor:</strong> <?= $libro['autor']; ?></p>
+                            <p class="card-text"><?= $libro['descripcion']; ?></p>
                         </div>
-                        ';
-
-
-
-
-                        <?php if ($roleUsu = "admin"): ?>
-                        <!-- Botones de editar y eliminar (solo visible para el admin) -->
-                            <div class="card-footer d-flex justify-content-between">
-                                <a href="" class="btn btn-outline-primary btn-sm">
-                                    <i class="fas fa-edit"></i> Editar
-                                </a>
-                                <a href="" class="btn btn-outline-danger btn-sm">
-                                    <i class="fas fa-trash-alt"></i> Eliminar
-                                </a>
-                            </div>
-
-                      <?php endif ?>
                     </div>
+                    <!-- Botones de editar y eliminar (solo visible para el admin) -->
+                    <?php if ($rolUsu == "admin"): ?>
+                        <div class="card-footer d-flex justify-content-between">
+                            <a href="" class="btn btn-outline-primary btn-sm">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
+                            <a href="" class="btn btn-outline-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i> Eliminar
+                            </a>
+                        </div>
+                    <?php endif ?>
                 </div>
-           
+            <?php endforeach; ?>
         </div>
     </div>
 
