@@ -17,33 +17,6 @@ if (isset($_GET['id'])) {
     }
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nuevaPregunta = $_POST['pregunta'];
-    $nuevaRespuesta = $_POST['respuesta'];
-    $nuevasOpciones = [$_POST['opcion1'], $_POST['opcion2'], $_POST['opcion3'], $_POST['opcion4']];
-
-    // Si es una edición, actualizamos la pregunta existente
-    if (isset($_GET['id'])) {
-        $preguntas[$id] = [
-            'id' => $id,
-            'question' => $nuevaPregunta,
-            'answer' => $nuevaRespuesta,
-            'options' => $nuevasOpciones
-        ];
-    } else {
-        $nuevaId = count($preguntas); 
-        $preguntas[$nuevaId] = [
-            'id' => $nuevaId,
-            'question' => $nuevaPregunta,
-            'answer' => $nuevaRespuesta,
-            'options' => $nuevasOpciones
-        ];
-    }
-
-    file_put_contents('data.php', '<?php $preguntas = ' . var_export($preguntas, true) . ';');
-    header('Location: manage.php');
-    exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo isset($_GET['id']) ? 'Editar Pregunta' : 'Añadir Nueva Pregunta'; ?></title>
+    <title>Editar y No se mas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>

@@ -55,8 +55,8 @@ if (isset($_GET['delete'])) {
                         <td><?php echo $pregunta['question']; ?></td>
                         <td><?php echo $pregunta['answer']; ?></td>
                         <td>
-                            <a href="manage.php?edit=<?php echo $index; ?>" class="btn btn-warning btn-sm">Editar</a>
-                            <a href="manage.php?delete=<?php echo $index; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar esta pregunta?')">Eliminar</a>
+                            <a href="" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="" class="btn btn-danger btn-sm">Eliminar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
