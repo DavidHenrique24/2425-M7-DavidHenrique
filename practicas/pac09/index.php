@@ -12,7 +12,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh; /* Asegura que ocupe toda la pantalla */
+        height: 100vh; 
         margin: 0;
       }
       .container {
