@@ -12,7 +12,7 @@ class Persona {
         return "Hola, soy " . $this->nombre . " y tengo " . $this->edad . " años.";
     }
 }
-// Verificar formulario
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //Recoger los datos del post pa ponerlo a persona
     $nombre = $_POST['nombre'];
