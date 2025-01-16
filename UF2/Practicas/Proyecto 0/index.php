@@ -66,7 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 }
 
 
-if ()
 ?>
 
 <!DOCTYPE html>
