@@ -1,19 +1,19 @@
-<?php 
-include_once('carta.class.php');
+<?php
+include 'baraja.class.php';
+
+// Crear una instancia de Baraja
+$baraja = new Baraja();
+
+// Crear todas las cartas
+$baraja->crear_baraja();
+
+// Mezclar la baraja
+$baraja->mezcla();
+
+// Mostrar todas las cartas en pantalla
+
+echo "<h1>Baraja Mezclada</h1>";
+echo '<div style="display: flex; flex-wrap: wrap; gap: 10px;">';
+$baraja->pinta_baraja();
+echo '</div>';
 ?>
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego</title>
-</head>
-<body>
-    <h1>Hola</h1>
-<?php 
-echo $carta1->pinta_carta();
-
-
-?>
-</body>
-</html>
