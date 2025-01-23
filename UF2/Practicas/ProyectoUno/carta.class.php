@@ -4,7 +4,7 @@ class Carta {
     public $color;
     public $index;
 
-    public function __construct($numero, $color, $index) {
+    public function __construct($numero, $color,$index = null) {
         $this->numero = $numero;
         $this->color = $color;
         $this->index = $index;
