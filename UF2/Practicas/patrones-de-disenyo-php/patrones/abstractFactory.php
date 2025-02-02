@@ -29,7 +29,7 @@
     <p>Además, no queremos cambiar el código existente al añadir al programa nuevos productos o familias de productos. Los comerciantes de muebles actualizan sus catálogos muy a menudo, y debemos evitar tener que cambiar el código principal cada vez que esto ocurra.</p>
     <br><br>
 
-    <h3 class="color">Pseudocodigo</h3>
+    <h3 class="color">Ejemplo de Código</h3>
     <p>Este ejemplo ilustra cómo puede utilizarse el patrón Abstract Factory para crear elementos de interfaz de usuario (UI) multiplataforma sin acoplar el código cliente a clases UI concretas, mientras se mantiene la consistencia de todos los elementos creados respecto al sistema operativo seleccionado.</p>
     <figure class="code">
 <pre class="codigo" lang="pseudocode">// El uso del patrón Builder sólo tiene sentido cuando tus

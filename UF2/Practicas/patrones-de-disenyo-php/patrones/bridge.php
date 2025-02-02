@@ -24,7 +24,7 @@
     <img src="https://refactoring.guru/images/patterns/diagrams/bridge/problem-es.png" alt="Problema resuelto por Bridge">
     </div>
     <br><br>
-    <h3 class="color">Pseudocódigo</h3>
+    <h3 class="color">Ejemplo de Código</h3>
     <p>Ejemplo de cómo el patrón Bridge separa la abstracción de la implementación:</p>
     <figure class="code">
 <pre class="codigo" lang="pseudocode">// Interfaz para la implementación

@@ -26,7 +26,7 @@
     <img src="https://refactoring.guru/images/patterns/diagrams/decorator/problem2.png" alt="Problema del patrón Decorator">
     </div>
     
-    <h3 class="color">Pseudocodigo</h3>
+    <h3 class="color">Ejemplo de Código</h3>
     <p>Este es un ejemplo de cómo se puede implementar el patrón Decorator en Pseudocódigo:</p>
     <figure class="code">
 <pre class="codigo" lang="pseudocode">// Interfaz común para los objetos originales y los decoradores

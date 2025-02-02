@@ -6,7 +6,7 @@
     <p>Los patrones estructurales se enfocan en cómo organizar las clases y objetos de manera eficiente para formar estructuras que puedan crecer sin problemas. Estos patrones ayudan a facilitar la comunicación entre objetos de manera que los componentes del sistema no tengan que estar tan estrechamente acoplados.</p>
     
     <h3>Selecciona un patrón estructural</h3>
-    <form method="POST" action="pagCambio.php">
+    <form method="POST" action="">
         <div class="form-group">
             <select id="patron" name="patron" class="form-control">
                 <option value="">Selecciona un patrón</option>
@@ -22,9 +22,16 @@
         <button type="submit" class="btn btn-rojo mt-3">Ver Información</button>
     </form>
 
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['patron']) && $_POST['patron'] != "") {
+        $patron = $_POST['patron'];
+        header("Location: patrones/{$patron}.php");
+        exit();  
+    }
+    ?>
+
     <div class="d-flex justify-content-center mt-5">
         <img src="https://refactoring.guru/images/patterns/content/index-design-patterns.png" alt="Patrones de Diseño" style="width: 700px;">
     </div>
 </div>
-
 

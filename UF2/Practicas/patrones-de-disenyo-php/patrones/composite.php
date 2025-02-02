@@ -21,7 +21,7 @@
     <img src="https://refactoring.guru/images/patterns/diagrams/composite/problem-es.png" alt="Problema Composite">
     </div><br>
     
-    <h3 class="color">Pseudocódigo</h3>
+    <h3 class="color">Ejemplo de Código</h3>
     <p>Ejemplo de implementación del patrón Composite:</p>
     <figure class="code">
 <pre class="codigo" lang="pseudocode">// La interfaz Componente declara operaciones comunes para elementos simples y complejos.

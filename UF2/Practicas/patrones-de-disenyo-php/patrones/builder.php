@@ -26,7 +26,7 @@
     <img src="https://refactoring.guru/images/patterns/diagrams/builder/problem2.png?id=2e91039b6c7d2d2df6ee519983a3b036"style="width="50px" " alt="">
     </div><br><br>
 
-    <h3 class="color">Pseudocodigo</h3>
+    <h3 class="color">Ejemplo de Código</h3>
     <p>Este ejemplo del patrón Builder ilustra cómo se puede reutilizar el mismo código de construcción de objetos a la hora de construir distintos tipos de productos, como automóviles, y crear los correspondientes manuales para esos automóviles.</p>
     <figure class="code">
 <pre class="codigo" lang="pseudocode">// El uso del patrón Builder sólo tiene sentido cuando tus

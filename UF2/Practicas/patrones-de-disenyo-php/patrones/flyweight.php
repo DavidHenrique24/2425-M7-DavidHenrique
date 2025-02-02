@@ -26,7 +26,7 @@
     <img src="https://refactoring.guru/images/patterns/diagrams/flyweight/solution1-es.png" alt="Problema del patrón Flyweight">
     </div>
     
-    <h3 class="color">Pseudocódigo</h3>
+    <h3 class="color">Ejemplo de Código</h3>
     <p>Este es un ejemplo de cómo se puede implementar el patrón Flyweight en Pseudocódigo:</p>
     <figure class="code">
 <pre class="codigo" lang="pseudocode">// Flyweight compartido

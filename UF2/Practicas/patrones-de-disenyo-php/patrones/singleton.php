@@ -34,7 +34,7 @@
     <img src="https://refactoring.guru/images/patterns/content/singleton/singleton-comic-1-es.png"style="width="50px" " alt="">
     </div>
 
-    <h3 class="color">Pseudocodigo</h3>
+    <h3 class="color">Ejemplo de Código</h3>
     <p>En este ejemplo, la clase de conexión de la base de datos actúa como Singleton. Esta clase no tiene un constructor público, por lo que la única manera de obtener su objeto es invocando el método <strong class="color">obtenerInstancia</strong>. Este método almacena en caché el primer objeto creado y lo devuelve en todas las llamadas siguientes.</p>
     <figure class="code">
 <pre class="codigo" lang="pseudocode">// La clase Base de datos define el método `obtenerInstancia`

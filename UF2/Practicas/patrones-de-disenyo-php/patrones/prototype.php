@@ -23,7 +23,7 @@
     <img src="https://refactoring.guru/images/patterns/content/prototype/prototype-comic-1-es.png"style="width="50px" " alt="">
     </div>
     <br>
-    <h3 class="color">Pseudocodigo</h3>
+    <h3 class="color">Ejemplo de Código</h3>
     <p>En este ejemplo, el patrón Prototype nos permite producir copias exactas de objetos geométricos sin acoplar el código a sus clases.</p>
     <figure class="code">
 <pre class="codigo" lang="pseudocode">// Prototipo base.
