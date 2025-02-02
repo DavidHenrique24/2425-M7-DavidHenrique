@@ -1,5 +1,5 @@
 <?php include 'header.php'; ?>
-<?php include 'nav.php'; ?>
+
 
 <div class="container mt-5">
     <h1 class="Titulo text-center">Patrones de Diseño</h1>
@@ -35,7 +35,7 @@
             </a>
         </div>
     </div>
-
+</div>
     <div class="d-flex justify-content-center mt-5">
         <img src="https://refactoring.guru/images/patterns/content/composite/composite.png" alt="" style="width: 700px;">
     </div>

@@ -9,9 +9,9 @@
         <div class="form-group">
             <select id="patron" name="patron" class="form-control">
                 <option value="">Selecciona un patrón</option>
-                <option value="abstract_factory">Abstract Factory</option>
+                <option value="abstractFactory">Abstract Factory</option>
                 <option value="builder">Builder</option>
-                <option value="factory_method">Factory Method</option>
+                <option value="factoryMethod">Factory Method</option>
                 <option value="prototype">Prototype</option>
                 <option value="singleton">Singleton</option>
             </select>

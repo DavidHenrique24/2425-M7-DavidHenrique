@@ -1,5 +1,5 @@
 <?php include 'header.php'; ?>
-<?php include 'nav.php'; ?>
+
 
 <div class="container mt-5">
     <h1 class="Titulo text-center">Patrones de Comportamiento</h1>
@@ -10,7 +10,7 @@
         <div class="form-group">
             <select id="patron" name="patron" class="form-control">
                 <option value="">Selecciona un patrón</option>
-                <option value="chain_of_responsibility">Chain of Responsibility</option>
+                <option value="chainOfResponsability">Chain of Responsibility</option>
                 <option value="command">Command</option>
                 <option value="interpreter">Interpreter</option>
                 <option value="iterator">Iterator</option>
