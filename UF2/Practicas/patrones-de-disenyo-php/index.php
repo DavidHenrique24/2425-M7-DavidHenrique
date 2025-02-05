@@ -27,7 +27,7 @@
             </a>
         </div>
         <div class="col-md-4 ">
-            <a href="comportament.php" class="card text-center text-decoration-none">
+            <a href="comportamiento.php" class="card text-center text-decoration-none">
                 <div class="card-body">
                     <h5 class="card-title">Patrones de Comportamiento</h5>
                     <p class="card-text">Patrones que gestionan la interacción y la responsabilidad entre objetos.</p>

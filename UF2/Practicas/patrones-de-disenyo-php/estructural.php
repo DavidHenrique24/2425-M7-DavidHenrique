@@ -1,5 +1,4 @@
 <?php include 'header.php'; ?>
-<?php include 'nav.php'; ?>
 
 <div class="container mt-5">
     <h1 class="Titulo">Patrones Estructurales</h1>
