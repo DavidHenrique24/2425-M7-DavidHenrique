@@ -4,7 +4,6 @@ include 'carta.class.php';
 class Baraja {
     public $conjunto_cartas = [];
 
-    // Crear todas las cartas
     public function crear_baraja() { 
         foreach (['red', 'yellow', 'blue', 'green'] as $color) {
             for ($i = 0; $i <= 9; $i++) {
@@ -29,9 +28,10 @@ class Baraja {
    
     public function pinta_baraja_girada() {
         foreach ($this->conjunto_cartas as $carta) {
-            echo $carta->pintar_carta(); 
+            echo $carta->pinta_carta_girada();  
         }
     }
+    
 }
 
 ?>

@@ -16,8 +16,10 @@ class Carta {
     }
 
     public function pintar_carta_link() {
-       
+        $imageName = $this->numero . '_' . strtolower($this->color) . '.png';
+        return '<a href="?carta=' . $this->index . '"><img src="cartas_uno/cartas_uno/' . $imageName . '" alt="Carta"></a>';
     }
+    
 
     public function pinta_carta_girada() {
         return '<img src="cartas_uno/cartas_uno/carta_girada.png" alt="Carta girada">';
