@@ -1,5 +1,3 @@
-
-
 <?php include 'header.php'; ?>
 
 <body>
@@ -8,7 +6,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h1 class="display-1 text-white font-weight-bold font-primary">Our Services</h1>
+        <h1 class="display-1 text-white font-weight-bold font-primary">Nuestros Servicios</h1>
       </div>
     </div>
   </div>
@@ -26,8 +24,8 @@
               <i class="icon-lg icon-box bg-gradient-primary rounded-circle ti-palette mb-5 d-inline-block text-white"></i>
               <i class="icon-lg icon-watermark text-white ti-palette"></i>
             </div>
-            <h4 class="mb-4">Design</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo</p>
+            <h4 class="mb-4">Diseño</h4>
+            <p>Ofrecemos soluciones creativas y personalizadas para la identidad visual de tu marca.</p>
           </div>
         </div>
       </div>
@@ -38,8 +36,8 @@
               <i class="icon-lg icon-box bg-gradient-primary rounded-circle ti-dashboard mb-5 d-inline-block text-white"></i>
               <i class="icon-lg icon-watermark text-white ti-dashboard"></i>
             </div>
-            <h4 class="mb-4">Development</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo</p>
+            <h4 class="mb-4">Desarrollo</h4>
+            <p>Creamos soluciones tecnológicas avanzadas para optimizar tu presencia en línea.</p>
           </div>
         </div>
       </div>
@@ -51,7 +49,7 @@
               <i class="icon-lg icon-watermark text-white ti-announcement"></i>
             </div>
             <h4 class="mb-4">Marketing</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo</p>
+            <p>Desarrollamos estrategias de marketing digital que impulsan tu marca y aumentan tu alcance.</p>
           </div>
         </div>
       </div>
@@ -62,8 +60,8 @@
               <i class="icon-lg icon-box bg-gradient-primary rounded-circle ti-game mb-5 d-inline-block text-white"></i>
               <i class="icon-lg icon-watermark text-white ti-game"></i>
             </div>
-            <h4 class="mb-4">Apps</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo</p>
+            <h4 class="mb-4">Aplicaciones</h4>
+            <p>Desarrollamos aplicaciones móviles y web de alto rendimiento adaptadas a tus necesidades.</p>
           </div>
         </div>
       </div>
@@ -75,7 +73,7 @@
               <i class="icon-lg icon-watermark text-white ti-crown"></i>
             </div>
             <h4 class="mb-4">Branding</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo</p>
+            <p>Te ayudamos a construir una marca fuerte y coherente que destaque en tu industria.</p>
           </div>
         </div>
       </div>
@@ -86,8 +84,8 @@
               <i class="icon-lg icon-box bg-gradient-primary rounded-circle ti-bar-chart mb-5 d-inline-block text-white"></i>
               <i class="icon-lg icon-watermark text-white ti-bar-chart"></i>
             </div>
-            <h4 class="mb-4">Analytics</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo</p>
+            <h4 class="mb-4">Analítica</h4>
+            <p>Te proporcionamos herramientas y conocimientos para tomar decisiones basadas en datos.</p>
           </div>
         </div>
       </div>
@@ -111,15 +109,15 @@
           <div class="col-lg-7 offset-lg-1">
             <div class="row">
               <div class="col-12">
-                <h2 class="text-white">We know What Bait to Use</h2>
+                <h2 class="text-white">Sabemos Qué Cebo Utilizar</h2>
                 <div class="section-border ml-0"></div>
               </div>
               <div class="col-md-6 mb-4">
                 <div class="media">
                   <i class="icon text-gradient-primary ti-vector mr-3"></i>
                   <div class="media-body">
-                    <h4 class="text-white">User Experience</h4>
-                    <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo</p>
+                    <h4 class="text-white">Experiencia de Usuario</h4>
+                    <p class="text-light">Creamos interfaces amigables que mejoran la experiencia de los usuarios.</p>
                   </div>
                 </div>
               </div>
@@ -127,8 +125,8 @@
                 <div class="media">
                   <i class="icon text-gradient-primary ti-layout mr-3"></i>
                   <div class="media-body">
-                    <h4 class="text-white">Responsive Layout</h4>
-                    <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo</p>
+                    <h4 class="text-white">Diseño Adaptable</h4>
+                    <p class="text-light">Nos aseguramos de que tu sitio web funcione perfectamente en cualquier dispositivo.</p>
                   </div>
                 </div>
               </div>
@@ -136,8 +134,8 @@
                 <div class="media">
                   <i class="icon text-gradient-primary ti-headphone-alt mr-3"></i>
                   <div class="media-body">
-                    <h4 class="text-white">Digital Solutions</h4>
-                    <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo</p>
+                    <h4 class="text-white">Soluciones Digitales</h4>
+                    <p class="text-light">Te ofrecemos soluciones innovadoras y personalizadas para cada reto digital.</p>
                   </div>
                 </div>
               </div>
@@ -146,7 +144,7 @@
                   <i class="icon text-gradient-primary ti-ruler-pencil mr-3"></i>
                   <div class="media-body">
                     <h4 class="text-white">Bootstrap 4x</h4>
-                    <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo</p>
+                    <p class="text-light">Utilizamos Bootstrap 4x para garantizar un diseño web moderno y eficiente.</p>
                   </div>
                 </div>
               </div>
@@ -164,9 +162,9 @@
   <div class="container section-sm overlay-secondary-half bg-cover" data-background="images/backgrounds/cta-bg.jpg">
   <div class="row">
     <div class="col-lg-8 offset-lg-1">
-      <h2 class="text-gradient-primary">Let's Start With Us!</h2>
-      <p class="h4 font-weight-bold text-white mb-4">Lorem ipsum dolor sit amet, magna habemus ius ad</p>
-      <a href="contact.html" class="btn btn-lg btn-primary">Let’s talk</a>
+      <h2 class="text-gradient-primary">¡Comienza con Nosotros!</h2>
+      <p class="h4 font-weight-bold text-white mb-4">Estamos listos para ayudarte a llevar tu negocio al siguiente nivel.</p>
+      <a href="contact.html" class="btn btn-lg btn-primary">Hablemos</a>
     </div>
   </div>
 </div>
