@@ -1,4 +1,18 @@
+<?php 
+// require_once 'config.php';
+// $result_users = $mysqli->query("SELECT * FROM Users ORDER BY id DESC");
 
+// $result_proj = $mysqli->query("SELECT * FROM Projects ORDER BY id DESC");
+
+// $proyectos = $result_proj -> fetch_all(MYSQLI_ASSOC);
+// print_r($proyectos);
+
+// $users = $result_users -> fetch_all(MYSQLI_ASSOC);
+// print_r($users);
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
