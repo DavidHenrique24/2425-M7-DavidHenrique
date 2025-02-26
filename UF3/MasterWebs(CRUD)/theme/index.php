@@ -1,4 +1,5 @@
 <?php 
+//Codigo de prueba para la base de datos 
 // require_once 'config.php';
 // $result_users = $mysqli->query("SELECT * FROM Users ORDER BY id DESC");
 
@@ -9,6 +10,18 @@
 
 // $users = $result_users -> fetch_all(MYSQLI_ASSOC);
 // print_r($users);
+
+//Sprint 3 h.1: 
+// Consultas para Portafolio por id:
+// SELECT * FROM Projects ORDER BY created_at DESC;
+
+// Consultas para Testimonios por id:
+// SELECT * FROM Testimonials ORDER BY id DESC;
+
+// Consultas para noticias por fecha: 
+// SELECT * FROM News ORDER BY new_date DESC;
+// Para recuperar las 3 ultimas noticias 
+// SELECT * FROM News ORDER BY new_date DESC LIMIT 3;
 
 
 
