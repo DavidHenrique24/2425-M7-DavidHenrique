@@ -34,7 +34,7 @@
 <body>
   
 
-<header class="navigation fixed-top">
+<header class="navigation bg-secondary">
   <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="index.php"><h1 class="text-white">MasterWebs</h1></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
@@ -58,9 +58,6 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="faqs.php">FAQ's</a>
-        </li>
-       
-          </div>
         </li>
       </ul>
     </div>

@@ -31,6 +31,11 @@ p {
   line-height: 1.7;
   font-family: "Poppins", sans-serif;
 }
+.banner {
+  background-image: url('images/backgrounds/page-title.jpg');
+  background-size: cover;
+  background-position: center;
+}
 
 .lead {
   font-size: 18px;
@@ -195,7 +200,7 @@ h6, .h6 {
 }
 
 body {
-  background-color: #fff;
+  background-color: #fffbfb;
   overflow-x: hidden;
 }
 
