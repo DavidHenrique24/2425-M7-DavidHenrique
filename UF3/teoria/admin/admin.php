@@ -12,6 +12,9 @@ if ($_SESSION['user_rol'] !== 'admin') {
 // Extracción de testimonios
 $resultTestimonios = $mysqli->query("SELECT * FROM Testimonials");
 
+// Extracción de usuarios
+$resultUsers = $mysqli->query("SELECT * FROM Users");
+
 ?>
 <html lang="es">
 <head>
@@ -45,7 +48,7 @@ $resultTestimonios = $mysqli->query("SELECT * FROM Testimonials");
                     <td><?= ($testimonio['rating']) ?></td>
                     <td>
     <!-- Enlaces para editar y eliminar testimonio -->
-    <a href="../admin/testomonials/edit-testimonials.php?id=<?= $testimonio['id'] ?>">Editar</a> |
+    <a href="/workspaces/2425-M7-DavidHenrique/UF3/teoria/admin/users/edit-users.php?id=<?= $testimonio['id'] ?>">Editar</a> |
     <a href="../admin/testomonials/delete-testimonials.php?id=<?= $testimonio['id'] ?>">Eliminar</a>
 </td>
 
@@ -54,8 +57,50 @@ $resultTestimonios = $mysqli->query("SELECT * FROM Testimonials");
         </tbody>
     </table>
 
+
+    <h2>Usuario</h2>
+      <table class="table" border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Avatar</th>
+                <th>Rol</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php 
+            // Recorremos todas las filas de los testimonios
+            while ($user = $resultUsers->fetch_assoc()) : ?>
+                <tr>
+                    <td><?= ($user['name']) ?></td>
+                    <td><?= ($user['surname']) ?></td>
+                    <td><?= ($user['email']) ?></td>
+                    <td><?= ($user['avatar']) ?></td>
+                    <td><?= ($user['rol']) ?></td>
+                    <td><?= ($user['age']) ?> </td>
+           
+                    <td><td>
+    <a href="/UF3/teoria/admin/users/edit-users.php?id=<?= $user['id'] ?>">Editar</a>
+</td>
+
+                    <a href="/admin/users/delete-users.php?id=<?= $user['id'] ?>">Eliminar</a>
+                    </td>
+                <?endwhile; ?>
+                </tr>
+        </tbody>
+    </table>
+
+ <a href=""></a>
+
     <h2>Noticias</h2>
 
     <h2>Proyectos</h2>
+
+
+
+    
 </body>
 </html>
