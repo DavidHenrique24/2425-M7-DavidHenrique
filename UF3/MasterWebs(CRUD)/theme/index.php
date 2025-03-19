@@ -1,5 +1,7 @@
 <?php 
-// Codigo de prueba para la base de datos 
+
+include 'header.php'; 
+
 require_once 'config.php';
 
 // Consultas para Portafolio por id:
@@ -14,8 +16,6 @@ $result_testimonios = $mysqli->query("SELECT * FROM Testimonials ORDER BY id DES
 
 <!DOCTYPE html>
 <html lang="es">
-
-<?php include 'header.php'; ?>
 
 <!-- banner -->
 <section class="banner bg-cover position-relative d-flex justify-content-center align-items-center" 

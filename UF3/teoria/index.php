@@ -15,9 +15,6 @@ require_once '/workspaces/2425-M7-DavidHenrique/UF3/MasterWebs(CRUD)/theme/confi
 <header class="container-fluid bg-light py-3 bg-dark text-white p-2">
     <div class="container">
         <div class="row align-items-center ">
-            <div class="col-md-6">
-                <h1 class="h3">Tarjeta de Datos</h1>
-            </div>
             <div class="col-md-6 text-md-end">
                 <nav class="d-flex align-items-center justify-content-end gap-3">
                     <?php if (isset($_SESSION['user_id'])): ?>

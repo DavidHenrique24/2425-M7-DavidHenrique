@@ -1,4 +1,3 @@
-<body>
 <?php include 'header.php'; 
 require_once 'config.php';
 
@@ -7,7 +6,7 @@ $result_news = $mysqli->query("SELECT * FROM News ");
 
 ?>
 
-
+<body>
 <!-- título de la página -->
 <section class="page-title bg-cover" data-background="images/backgrounds/page-title.jpg">
   <div class="container">

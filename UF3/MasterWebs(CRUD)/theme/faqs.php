@@ -1,5 +1,5 @@
-<body>
-<?php include 'header.php'; ?>
+<?php include 'header.php' ?>
+
 
 <!-- título de página -->
 <section class="page-title bg-cover" data-background="images/backgrounds/page-title.jpg">
@@ -12,7 +12,7 @@
   </div>
 </section>
 <!-- /título de página -->
-
+<body>
 <section class="section bg-light">
   <div class="container">
     <div class="row">
