@@ -31,7 +31,7 @@ $result_news = $mysqli->query("SELECT * FROM News ");
     </div>
     <div class="row">
       <?php
-      $array_noticias = $result_news->fetch_all(MYSQLI_ASSOC);
+        $array_noticias = $result_news->fetch_all(MYSQLI_ASSOC);
       foreach ($array_noticias as $noticia) : ?>
         <div class="col-lg-4 col-md-6 mb-4">
           <article class="card mx-3 my-3 border border-light rounded shadow-lg" style="height: 400px;"> 
