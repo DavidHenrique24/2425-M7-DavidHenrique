@@ -34,7 +34,7 @@ $result_testimonios = $mysqli->query("SELECT * FROM Testimonials ORDER BY id DES
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto text-center">
-        <h2>Equipo</h2>
+        <h2>Ultimos usuarios</h2>
         <div class="section-border"></div>
       </div>
     </div>
@@ -50,7 +50,7 @@ $result_testimonios = $mysqli->query("SELECT * FROM Testimonials ORDER BY id DES
             <div class="card-body text-center">
               <h4 class="card-title text-primary"><?= $user['name'] ?> <?= $user['surname'] ?></h4>
               <p class="card-text"><?= $user['rol'] ?></p>
-              <a href="user-profile.php?id=<?= $user['id'] ?>" class="btn btn-outline-primary">Ver Perfil</a>
+  
             </div>
           </div>
         </div>
