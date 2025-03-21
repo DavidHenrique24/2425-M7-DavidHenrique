@@ -38,11 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // 8. Ejecutar la consulta
         if ($stmt->execute()) {
-            echo 'Proyecto agregado con éxito';
-            $stmt->close();
-            $mysqli->close();
-            header("Location: proyectos.php"); // Redirigir después de agregar el proyecto
-            exit;
+            // Realiza la redirección inmediatamente después de ejecutar la consulta
+            header('Location: ../admin.php'); 
+            exit; 
         } else {
             echo 'Error al agregar el proyecto: ' . $mysqli->error;
         }
@@ -52,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+// 10. Cerrar la conexión con la base de datos
 $mysqli->close();
 ?>
 
@@ -61,25 +60,56 @@ $mysqli->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Proyecto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://images7.alphacoders.com/108/1087509.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
+    <div class="container mt-5">
+        <div class="mb-4">
+            <button class="btn btn-secondary" onclick="window.history.back();">Volver</button>
+        </div>
+        
+        <h1 class="text-center mb-4">Agregar Proyecto</h1>
+        <form action="" method="POST" class="bg-white p-4 rounded shadow-sm text-black">
+            <div class="mb-3">
+                <label for="title" class="form-label">Título</label>
+                <input type="text" name="title" id="title" class="form-control" required>
+            </div>
 
-<h1>Agregar Proyecto</h1>
-<form action="" method="POST">
-    <label for="title">Título</label><br>
-    <input type="text" name="title" id="title" required><br><br>
+            <div class="mb-3">
+                <label for="url" class="form-label">URL</label>
+                <textarea name="url" id="url" class="form-control" rows="4" required></textarea>
+            </div>
 
-    <label for="url">URL</label><br>
-    <textarea name="url" id="url" cols="30" rows="4" required></textarea><br><br>
+            <div class="mb-3">
+                <label for="thumbnail" class="form-label">Thumbnail (URL de la imagen)</label>
+                <input type="text" name="thumbnail" id="thumbnail" class="form-control" required>
+            </div>
 
-    <label for="thumbnail">Thumbnail (URL de la imagen)</label><br>
-    <input type="text" name="thumbnail" id="thumbnail" required><br><br>
+            <div class="mb-3">
+                <label for="description" class="form-label">Descripción</label>
+                <textarea name="description" id="description" class="form-control" rows="4" required></textarea>
+            </div>
 
-    <label for="description">Descripción</label><br>
-    <textarea name="description" id="description" rows="4" required></textarea><br><br>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Agregar Proyecto</button>
+            </div>
+        </form>
+    </div>
 
-    <input type="submit" value="Agregar proyecto">
-</form>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
