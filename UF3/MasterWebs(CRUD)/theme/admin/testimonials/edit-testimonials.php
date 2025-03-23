@@ -1,63 +1,44 @@
 <?php
-session_start();
 require_once '../../config.php';
 
-// 1. Verificar si el usuario es administrador
-if ($_SESSION['user_rol'] !== 'admin') {
-    echo 'No tienes permisos para acceder a esta página';
-    echo '<img src="https://i.blogs.es/d86db0/meme-fry-1/1366_2000.jpg" alt="">';
-    exit;
+if (!isset($_GET['id'])) {
+    header('Location: ../admin.php');
+    exit();
 }
 
-// 2. Comprobar si el formulario ha sido enviado
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+$id = (int) $_GET['id'];
+$result = $mysqli->query("SELECT * FROM Testimonials WHERE id = $id");
+
+$testimonial = $result->fetch_assoc();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $surname = $_POST['surname'];
     $description = $_POST['description'];
     $rating = $_POST['rating'];
+    $query = "UPDATE Testimonials SET name = ?, surname = ?, description = ?, rating = ? WHERE id = ?";
+    $stmt = $mysqli->prepare($query);
+    $stmt->bind_param('sssii', $name, $surname, $description, $rating, $id);
+    $stmt->execute();
 
-    // Preparar la consulta para agregar el testimonio
-    $stmt = $mysqli->prepare(
-        "INSERT INTO Testimonials (name, surname, description, rating) VALUES (?, ?, ?, ?)"
-    );
-
-    // Comprobar si la preparación fue exitosa
-    if (!$stmt) {
-        echo 'Error en la preparación de la consulta: ' . $mysqli->error;
-        exit;
-    }
-
-
-    $stmt->bind_param('sssi', $name, $surname, $description, $rating);
-
-    // Ejecutar la consulta
-    if ($stmt->execute()) {
-        header('Location: ../admin.php');
-        exit;
-    } else {
-        echo 'Error al agregar el testimonio: ' . $stmt->error;
-    }
-
-    $stmt->close();
+    header('Location: ../admin.php');
+    exit();
 }
-
-$mysqli->close();
 ?>
 
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Testimonio</title>
+    <title>Editar Testimonio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-         body {
+        body {
             background-image: url('https://images7.alphacoders.com/108/1087509.jpg'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: #fff; 
+            color: #fff;
         }
         .container {
             background-color: rgba(0, 0, 0, 0.6);
@@ -72,30 +53,30 @@ $mysqli->close();
             <a href="../admin.php"><button class="btn btn-secondary">Volver</button></a>
         </div>
         
-        <h1 class="text-center mb-4">Agregar Testimonio</h1>
+        <h1 class="text-center mb-4">Editar Testimonio de <?= ($testimonial['name']) ?></h1>
         <form action="" method="POST" class="bg-white p-4 rounded shadow-sm text-black">
             <div class="mb-3">
                 <label for="name" class="form-label">Nombre</label>
-                <input type="text" name="name" id="name" class="form-control" required>
+                <input type="text" name="name" id="name" class="form-control" value="<?= ($testimonial['name']) ?>" required>
             </div>
 
             <div class="mb-3">
                 <label for="surname" class="form-label">Apellido</label>
-                <input type="text" name="surname" id="surname" class="form-control" required>
+                <input type="text" name="surname" id="surname" class="form-control" value="<?= ($testimonial['surname']) ?>" required>
             </div>
 
             <div class="mb-3">
                 <label for="description" class="form-label">Descripción</label>
-                <textarea name="description" id="description" class="form-control" rows="4" required></textarea>
+                <textarea name="description" id="description" class="form-control" rows="4" required><?= ($testimonial['description']) ?></textarea>
             </div>
 
             <div class="mb-3">
                 <label for="rating" class="form-label">Valoración (1-5)</label>
-                <input type="number" name="rating" id="rating" class="form-control" min="1" max="5" required>
+                <input type="number" name="rating" id="rating" class="form-control" min="1" max="5" value="<?= ($testimonial['rating']) ?>" required>
             </div>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-primary">Agregar Testimonio</button>
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
             </div>
         </form>
     </div>

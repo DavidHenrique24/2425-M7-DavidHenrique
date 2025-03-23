@@ -64,7 +64,7 @@ $result_testimonios = $mysqli->query("SELECT * FROM Testimonials ORDER BY id DES
   <div class="container-fluid px-5">
     <div class="row">
       <div class="col-lg-10 mx-auto text-center">
-        <h2 class="text-white">Proyectos</h2>
+        <h2 class="text-white">Ultimos Proyectos</h2>
         <div class="section-border"></div>
       </div>
     </div>
@@ -126,7 +126,7 @@ $result_testimonios = $mysqli->query("SELECT * FROM Testimonials ORDER BY id DES
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto text-center">
-        <h2 class="text-white">Testimonios</h2>
+        <h2 class="text-white">Nuevos Testimonios</h2>
         <div class="section-border"></div>
       </div>
     </div>

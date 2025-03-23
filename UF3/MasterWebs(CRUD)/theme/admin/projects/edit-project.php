@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once '../../config.php';
 
 if (!isset($_GET['id'])) {
@@ -8,19 +7,19 @@ if (!isset($_GET['id'])) {
 }
 
 $id = (int) $_GET['id'];
-$result = $mysqli->query("SELECT * FROM News WHERE id = $id");
+$result = $mysqli->query("SELECT * FROM Projects WHERE id = $id");
 
-$new = $result->fetch_assoc();
+$project = $result->fetch_assoc();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
-    $subtitle = $_POST['subtitle'];
+    $url = $_POST['url'];
     $thumbnail = $_POST['thumbnail'];
     $description = $_POST['description'];
 
-    $query = "UPDATE News SET title = ?, subtitle = ?, thumbnail = ?, description = ? WHERE id = ?";
+    $query = "UPDATE Projects SET title = ?, url = ?, thumbnail = ?, description = ? WHERE id = ?";
     $stmt = $mysqli->prepare($query);
-    $stmt->bind_param('ssssi', $title, $subtitle, $thumbnail, $description, $id);
+    $stmt->bind_param('ssssi', $title, $url, $thumbnail, $description, $id);
     $stmt->execute();
 
     header('Location: ../admin.php');
@@ -28,12 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Noticia</title>
+    <title>Editar Proyecto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -56,28 +54,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="../admin.php"><button class="btn btn-secondary">Volver</button></a>
         </div>
         
-        <h1 class="text-center mb-4">Editar Noticia <?= htmlspecialchars($new['title']) ?></h1>
+        <h1 class="text-center mb-4">Editar Proyecto <?= ($project['title']) ?></h1>
         <form action="" method="POST" class="bg-white p-4 rounded shadow-sm text-black">
             <div class="mb-3">
                 <label for="title" class="form-label">Título</label>
-                <input type="text" name="title" id="title" class="form-control" value="<?= htmlspecialchars($new['title']) ?>" required>
+                <input type="text" name="title" id="title" class="form-control" value="<?= ($project['title']) ?>" required>
             </div>
-            
+
             <div class="mb-3">
-                <label for="subtitle" class="form-label">Subtítulo</label>
-                <input type="text" name="subtitle" id="subtitle" class="form-control" value="<?= htmlspecialchars($new['subtitle']) ?>" required>
+                <label for="url" class="form-label">URL</label>
+                <textarea name="url" id="url" class="form-control" rows="2" required><?= ($project['url']) ?></textarea>
             </div>
-            
+
             <div class="mb-3">
                 <label for="thumbnail" class="form-label">Thumbnail (URL de la imagen)</label>
-                <input type="text" name="thumbnail" id="thumbnail" class="form-control" value="<?= htmlspecialchars($new['thumbnail']) ?>" required>
+                <input type="text" name="thumbnail" id="thumbnail" class="form-control" value="<?= ($project['thumbnail']) ?>" required>
             </div>
-            
+
             <div class="mb-3">
                 <label for="description" class="form-label">Descripción</label>
-                <textarea name="description" id="description" class="form-control" rows="4" required><?= htmlspecialchars($new['description']) ?></textarea>
+                <textarea name="description" id="description" class="form-control" rows="4" required><?= ($project['description']) ?></textarea>
             </div>
-            
+
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
             </div>

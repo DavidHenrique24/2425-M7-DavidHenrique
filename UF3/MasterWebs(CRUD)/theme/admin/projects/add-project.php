@@ -5,49 +5,44 @@ require_once '/workspaces/2425-M7-DavidHenrique/UF3/MasterWebs(CRUD)/theme/confi
 // 1. Verificar si el usuario es administrador
 if (!isset($_SESSION['user_rol']) || $_SESSION['user_rol'] !== 'admin') {
     echo 'No tienes permisos para acceder a esta página';
-    echo '<img src="https://i.blogs.es/d86db0/meme-fry-1/1366_2000.jpg" alt="">';
+    echo '<img src="https://i.blogs.es/d86db0/meme-fry-1/1366_2000.jpg" alt="No tienes permisos">';
     exit;
 }
 
 // 2. Comprobar si el formulario ha sido enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // 3. Recoger datos del formulario y validar que existan
-    $title = isset($_POST['title']) ? trim($_POST['title']) : '';
-    $url = isset($_POST['url']) ? trim($_POST['url']) : '';
-    $thumbnail = isset($_POST['thumbnail']) ? trim($_POST['thumbnail']) : '';
-    $description = isset($_POST['description']) ? trim($_POST['description']) : '';
+    $title = $_POST['title'];
+    $url = $_POST['url'];
+    $thumbnail = $_POST['thumbnail'] ;
+    $description = $_POST['description'] ;
 
-    // 4. Validar que los campos no estén vacíos
-    if (empty($title) || empty($url) || empty($thumbnail) || empty($description)) {
-        echo 'Todos los campos son obligatorios.';
-    } else {
-        // 5. Preparar la consulta para evitar SQL injection
+        //  Preparar la consulta para evitar SQL injection
         $stmt = $mysqli->prepare(
             "INSERT INTO Projects (title, url, thumbnail, description) 
             VALUES (?, ?, ?, ?)"
         );
 
-        // 6. Comprobar si la preparación fue exitosa
+        //  Comprobar si la preparación fue exitosa
         if (!$stmt) {
             echo 'Error en la preparación de la consulta: ' . $mysqli->error;
             exit;
         }
 
-        // 7. Bindear los parámetros
+        // Bindear los parámetros
         $stmt->bind_param('ssss', $title, $url, $thumbnail, $description);
 
-        // 8. Ejecutar la consulta
+        // Ejecutar la consulta
         if ($stmt->execute()) {
-            // Realiza la redirección inmediatamente después de ejecutar la consulta
-            header('Location: ../admin.php'); 
-            exit; 
+            // 8. Redirección tras éxito
+            header('Location: ../admin.php');
+            exit;
         } else {
-            echo 'Error al agregar el proyecto: ' . $mysqli->error;
+            echo 'Error al agregar el proyecto: ' . $stmt->error;
         }
 
-        // 9. Cerrar la declaración y la conexión
+        //  Cerrar la declaración 
         $stmt->close();
-    }
+    
 }
 
 // 10. Cerrar la conexión con la base de datos
@@ -79,7 +74,7 @@ $mysqli->close();
 <body>
     <div class="container mt-5">
         <div class="mb-4">
-            <button class="btn btn-secondary" onclick="window.history.back();">Volver</button>
+            <a href="../admin.php"><button class="btn btn-secondary">Volver</button></a>
         </div>
         
         <h1 class="text-center mb-4">Agregar Proyecto</h1>

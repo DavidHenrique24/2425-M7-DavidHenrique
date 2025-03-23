@@ -11,7 +11,7 @@ if (!isset($_GET['id'])) {
 $id = (int)$_GET['id']; 
 
 // Preparamos la consulta para eliminar el usuario
-$stmt = $mysqli->prepare("DELETE FROM Testimonials WHERE id = ?");
+$stmt = $mysqli->prepare("DELETE FROM Projects WHERE id = ?");
 $stmt->bind_param("i", $id);
 // Ejecutamos la consulta
 if ($stmt->execute()) {

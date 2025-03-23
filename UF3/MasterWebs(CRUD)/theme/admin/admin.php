@@ -55,7 +55,7 @@ $resultProjects = $mysqli->query("SELECT * FROM Projects");
         
         <!-- Usuarios -->
         <div class="card mb-4">
-            <div class="card-header">
+            <div class="card-header ">
                 <h2>Usuarios</h2>
             </div>
             <div class="card-body">
@@ -96,9 +96,9 @@ $resultProjects = $mysqli->query("SELECT * FROM Projects");
 
             <!-- Testimonios -->
             <div class="card mb-4">
-            <div class="card-header">
+            <div class="card-header d-flex justify-content-between align-items-center">
                 <h2>Testimonios</h2>
-                <a href="../admin/news/add-news.php" class="btn btn-success mb-3">Agregar Testimonios</a>
+                <a href="./testimonials/add-testimonials.php?id=<?= $user['id'] ?>" class="btn btn-warning btn-sm">Agregar Testimonio</a>
             </div>
             <div class="card-body">
                 <table class="table table-striped table-bordered">
@@ -121,8 +121,8 @@ $resultProjects = $mysqli->query("SELECT * FROM Projects");
                                 <td><?= ($testimonio['description']) ?></td>
                                 <td><?= ($testimonio['rating']) ?></td>
                                 <td>
-                                    <a href="/workspaces/2425-M7-DavidHenrique/UF3/teoria/admin/users/edit-users.php?id=<?= $testimonio['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
-                                    <a href="../admin/testomonials/delete-testimonials.php?id=<?= $testimonio['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este testimonio?')">Eliminar</a>
+                                    <a href="./testimonials/edit-testimonials.php?id=<?= $testimonio['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="./testimonials/delete-testimonials.php?id=<?= $testimonio['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este testimonio?')">Eliminar</a>
                                 </td>
                             </tr>
                         <?php endwhile; ?>
@@ -135,9 +135,9 @@ $resultProjects = $mysqli->query("SELECT * FROM Projects");
  
         <!-- News -->
         <div class="card mb-4">
-            <div class="card-header">
+            <div class="card-header d-flex justify-content-between align-items-center">
                 <h2>Noticias</h2>
-                <a href="../admin/news/add-news.php" class="btn btn-success mb-3">Agregar Noticia</a>
+                <a href="../admin/new/add-new.php?id=<?= $user['id'] ?>" class="btn btn-warning btn-sm">Agregar Noticia</a>
             </div>
             <div class="card-body">
                 <table class="table table-striped table-bordered">
@@ -161,9 +161,8 @@ $resultProjects = $mysqli->query("SELECT * FROM Projects");
                                 <td><?= ($new['description']) ?></td>
                               
                                 <td>
-                                    <a href="./users/edit-users.php?id=<?= $user['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
-                                    <a href="./users/delete-user.php?id=<?= $user['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este usuario?')">Eliminar</a>
-
+                                    <a href="./new/edit-new.php?id=<?= $new['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="../admin/new/delete-new.php?id=<?= $new['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar esta noticia?')">Eliminar</a>
                                 </td>
                             </tr>
                         <?php endwhile; ?>
@@ -194,10 +193,10 @@ $resultProjects = $mysqli->query("SELECT * FROM Projects");
                 <tbody>
                     <?php while ($project = $resultProjects->fetch_assoc()) : ?>
                         <tr>
-                            <td><?= htmlspecialchars($project['title']) ?></td>
-                            <td><a href="<?= htmlspecialchars($project['url']) ?>" target="_blank"><?= htmlspecialchars($project['url']) ?></a></td>
-                            <td><img src="<?= htmlspecialchars($project['thumbnail']) ?>" alt="Imagen Proyecto" class="img-fluid" width="60"></td>
-                            <td><?= htmlspecialchars($project['description']) ?></td>
+                            <td><?= ($project['title']) ?></td>
+                            <td><a href="<?= ($project['url']) ?>" target="_blank"><?= ($project['url']) ?></a></td>
+                            <td><img src="<?= ($project['thumbnail']) ?>" alt="Imagen Proyecto" class="img-fluid" width="60"></td>
+                            <td><?= ($project['description']) ?></td>
                             <td>
                                 <a href="./projects/edit-project.php?id=<?= $project['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
                                 <a href="./projects/delete-project.php?id=<?= $project['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este proyecto?')">Eliminar</a>

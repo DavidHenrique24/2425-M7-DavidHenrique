@@ -40,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- Incluir Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        /* Fondo de pantalla */
         body {
             background-image: url('https://images7.alphacoders.com/108/1087509.jpg'); 
             background-size: cover;
@@ -58,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body class="bg-light">
     <div class="container mt-5">
     <div class="mb-4">
-            <button class="btn btn-secondary" onclick="window.history.back();">Volver</button>
+    <a href="../admin.php"><button class="btn btn-secondary">Volver</button></a>
         </div>
         
         <h1 class="text-center mb-4">Editar Usuario <?= ($user['name']) ?></h1>
