@@ -9,39 +9,65 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $surname = $_POST['surname'];  // Recoger apellido
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $avatar = $_POST['avatar'];    // Recoger avatar (opcional)
+    $avatar = '';    // Variable para almacenar la ruta del avatar
     $age = $_POST['age'];          // Recoger edad
+
+    // 2. Subir el archivo de avatar (si se ha seleccionado uno)
+    if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
+        $fileTmpPath = $_FILES['avatar']['tmp_name'];
+        $fileName = $_FILES['avatar']['name'];
+        $fileNameCmps = explode(".", $fileName);
+        $fileExtension = strtolower(end($fileNameCmps));
+
+        // Validar las extensiones permitidas
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+        if (in_array($fileExtension, $allowedExtensions)) {
+            // Renombrar el archivo
+            $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+
+            // Definir la ruta de destino
+            $dest_path = 'uploads/' . $newFileName;
+
+            // Mover el archivo a la carpeta uploads/
+            if (move_uploaded_file($fileTmpPath, $dest_path)) {
+                $avatar = $dest_path; // Asignar la ruta del archivo subido
+            } else {
+                echo "Error: No se pudo mover el archivo a la carpeta de destino.";
+            }
+        } else {
+            echo "Error: Solo se permiten archivos de imagen (jpg, jpeg, png, gif).";
+        }
+    }
+
+    // 3. Cifrar la contraseña con password_hash
+    $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
+
+    // 4. Preparar la consulta antes de insertar para evitar SQL injection
+    $stmt = $mysqli->prepare(
+        "INSERT INTO Users (name, surname, email, avatar, password, rol, age, date_register) 
+         VALUES (?, ?, ?, ?, ?, 'user', ?, NOW())"
+    );
+
+    // 5. Comprobar que la preparación de la consulta tuvo éxito
+    if (!$stmt) {
+        echo 'Error en la preparación de la consulta: ' . $mysqli->error;
+        exit;
+    }
+
+    // 6. Bindear los parámetros
+    $stmt->bind_param('sssssi', $name, $surname, $email, $avatar, $passwordHashed, $age);
+
+    // 7. Ejecutar la consulta
+    if ($stmt->execute()) {
+        header('Location: login.php '); // Redirigir al usuario a la página de login
+        exit; 
+    } 
+
+
+    // 8. Cerrar la declaración
+    $stmt->close();
+    $mysqli->close();
 }
-
-// 2. Cifrar la contraseña con password_hash
-$passwordHashed = password_hash($password, PASSWORD_DEFAULT);
-
-// 3. Preparar la consulta antes de insertar para evitar SQL injection
-$stmt = $mysqli->prepare(
-    "INSERT INTO Users (name, surname, email, avatar, password, rol, age, date_register) 
-     VALUES (?, ?, ?, ?, ?, 'user', ?, NOW())"
-);
-
-// 4. Comprobar que la preparación de la consulta tuvo éxito
-if (!$stmt) {
-    echo 'Error en la preparación de la consulta: ' . $mysqli->error;
-    exit;
-}
-
-// 5. Bindear los parámetros
-$stmt->bind_param('sssssi', $name, $surname, $email, $avatar, $passwordHashed, $age);
-
-// 6. Ejecutar la consulta
-if ($stmt->execute()) {
-    echo 'Usuario registrado con éxito';
- 
-} 
-
-// 7. Cerrar la declaración
-
-$stmt->close();
-$mysqli->close();
-
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +82,7 @@ $mysqli->close();
     <div class="bg-white p-4 rounded shadow " style="width: 600px;">
         <h1 class="text-center">Registro</h1>
 
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="name" class="form-label fw-bold">Nombre</label>
                 <input type="text" name="name" id="name" class="form-control" required>
@@ -79,7 +105,7 @@ $mysqli->close();
 
             <div class="mb-3">
                 <label for="avatar" class="form-label fw-bold">Avatar</label>
-                <input type="text" name="avatar" id="avatar" class="form-control">
+                <input type="file" name="avatar" id="avatar" class="form-control">
             </div>
 
             <div class="mb-3">
@@ -92,5 +118,3 @@ $mysqli->close();
     </div>
 </body>
 </html>
-
-

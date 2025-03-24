@@ -59,7 +59,6 @@ require_once 'config.php';
         <!-- Nombre de usuario con espacio a la derecha -->
         <span class="fw-bold text-white gap-5">Bienvenido! <?= ($_SESSION['user_name']) ; ?> <?= ($_SESSION['user_surname']) ; ?></span>
         
-        <!-- Imagen de avatar con espacio a la derecha -->
         <img src="<?= !empty($_SESSION['user_avatar']) ? $_SESSION['user_avatar'] : 'ruta-a-imagen-por-defecto.jpg'; ?>" 
              alt="Avatar de <?= ($_SESSION['user_name']); ?>" 
              class="rounded-circle me-3" 
