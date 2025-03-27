@@ -48,7 +48,7 @@ $result_vehicles = $mysqli->query("SELECT * FROM VEHICLES ");
         <div class="card mb-4">
             <div class="card-header ">
                 <h2>Autos Disponibles</h2>
-                <a href="./vehicles/add-vehicle.php?id=<?= $user['id'] ?>" class="btn btn-warning btn-sm">Agregar Auto</a>
+                <a href="./vehicles/add-vehicle.php?>" class="btn btn-warning btn-sm">Agregar Auto</a>
             </div>
             <div class="card-body">
                 <table class="table table-striped table-bordered">
