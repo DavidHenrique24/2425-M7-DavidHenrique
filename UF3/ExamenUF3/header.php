@@ -16,7 +16,10 @@ require_once 'config.php';
     <div class="container">
         <div class="row align-items-end ">
             <div class="col-md-6 text-md-end">
+                
                 <nav class="d-flex align-items-end justify-content-end gap-3">
+               
+              
                     <?php if (isset($_SESSION['user_id'])): ?>
                         <div class="d-flex align-items-center gap-2">
                             <img src="<?= !empty($_SESSION['user_imatge_perfil']) ? $_SESSION['user_imatge_perfil'] : 'https://i.pinimg.com/564x/9d/6b/9d/9d6b9db2dcb0526a09b89fb35d075c72.jpg'; ?>" 
@@ -24,7 +27,7 @@ require_once 'config.php';
                                  class="rounded-circle" 
                                  style="width: 40px; height: 40px; object-fit: cover;">
                             <span class="fw-bold"><?= ($_SESSION['user_nom']); ?></span>
-                       
+
                             <?php if ($_SESSION['user_rol'] === 'admin') : ?>
                                 <a href="./admin/admin.php" class="ms-2">
                                     <img src="https://cdn-icons-png.flaticon.com/512/58/58308.png" 
@@ -33,7 +36,9 @@ require_once 'config.php';
                                          style="width: 40px; height: 40px; object-fit: cover;">
                                 </a>
                             <?php endif; ?>
+                            <a href="index.php" class="text-decoration-none text-white">mis reservas</a>
                             <a href="logout.php" class="btn btn-outline-danger btn-sm">Cerrar Sesión</a>
+                            
                         </div>
                     <?php else: ?>
                         <a href="login.php" class="btn btn-primary btn-sm">Iniciar Sesión</a>

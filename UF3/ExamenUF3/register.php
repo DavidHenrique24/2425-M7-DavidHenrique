@@ -30,7 +30,7 @@ $stmt->bind_param('ssss', $nom, $email, $imatge_perfil, $passwordHashed);
 
 // 6. Ejecutar la consulta
 if ($stmt->execute()) {
-    echo 'Usuario registrado correctamente.';
+    header('Location: login.php'); 
 } 
 
 // 7. Cerrar la declaración

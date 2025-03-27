@@ -22,12 +22,11 @@ $result_vehicles = $mysqli->query("SELECT * FROM VEHICLES ORDER BY id DESC LIMIT
   </div>
 </section>
 
-<!-- Mostrar equipo -->
-<section class="section  py-5">
+<section class="section  py-5 text-black">
   <div class="container-fluid px-5">
     <div class="row">
       <div class="col-lg-10 mx-auto text-center">
-        <h2 class="text-white">Ultimos vehicles</h2>
+        <h2 class="text-black mb-5">Ultimos vehiculos</h2>
         <div class="section-border"></div>
       </div>
     </div>
@@ -41,10 +40,18 @@ $result_vehicles = $mysqli->query("SELECT * FROM VEHICLES ORDER BY id DESC LIMIT
             <div class="card mb-4">
               <img src="<?= $vehicle['imatge'] ?>" alt="project-thumb" class="card-img-top rounded" style="height: 300px; object-fit: cover;">
               <div class="card-body d-flex flex-column" style="height: 200px;">
-                <h4 class="card-title text-primary"><a href="project-single.html"><?= $vehicle['model'] ?></a></h4>
-                <p class="card-text flex-grow-1"><?= $vehicle['preu_dia'] ?></p>
-                <p class="card-text flex-grow-1"><?= $vehicle['disponible'] ?></p>
-                <a href="<?= $vehicle['url'] ?>" class="btn btn-outline-primary mt-auto">Ver vehicle</a>
+                <h4 class="card-title text-primary"><?= $vehicle['model'] ?></a></h4>
+                <p class="card-text flex-grow-1">Categoria: <?= $vehicle['categoria'] ?>$</p>
+                <p class="card-text flex-grow-1">Precio: <?= $vehicle['preu_dia'] ?>$</p>
+                <?if ($vehicle['disponible'] == 1) {
+                  $vehicle['disponible'] = 'Disponible';
+                } else {
+                  $vehicle['disponible'] = 'No disponible';
+                }
+                ?>
+                <p class="card-text flex-grow-1">Disponible: <?= $vehicle['disponible'] ?></p>
+                <a href="" class="btn btn-outline-primary mt-auto">Reservar</a>
+                <modal></modal>
               </div>
             </div>
           </div>
