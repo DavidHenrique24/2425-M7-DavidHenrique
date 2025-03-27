@@ -1,7 +1,6 @@
 <?php 
 
 include 'header.php'; 
-
 require_once 'config.php';
 
 // Consultas para Portafolio por id:
@@ -80,7 +79,7 @@ $result_testimonios = $mysqli->query("SELECT * FROM Testimonials ORDER BY id DES
               <h4 class="card-title text-primary"><a href="project-single.html"><?= $proyecto['title'] ?></a></h4>
               <p class="card-text flex-grow-1"><?= $proyecto['description'] ?></p>
               <a href="<?= $proyecto['url'] ?>" class="btn btn-outline-primary mt-auto">Ver proyecto</a>
-
+              
             </div>
           </div>
         </div>

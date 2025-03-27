@@ -6,7 +6,7 @@ require_once '/workspaces/2425-M7-DavidHenrique/UF3/MasterWebs(CRUD)/theme/confi
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 2. Recoger datos del formulario en variables
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = $_POST['contrasenya'];
 
     // 3. Ejecutar la consulta
     $result = mysqli_query($mysqli, "SELECT * FROM Users WHERE email = '$email' LIMIT 1");
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result && $result->num_rows > 0) {
         $user = $result->fetch_assoc();
         // 5. Comprobar si la contraseña es correcta
-        if (password_verify($password, $user['password'])) {
+        if (password_verify($password, $user['contrasenya'])) {
             // 6. Guardar el usuario en la sesión
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_email'] = $user['email'];
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="email" name="email" id="email" required><br>
 
         <label for="password">Contraseña</label><br>
-        <input type="password" name="password" id="password" required><br>
+        <input type="contrasenya" name="contrasenya" id="contrasenya" required><br>
 
         <input type="submit" value="Iniciar sesión">
     </form>
